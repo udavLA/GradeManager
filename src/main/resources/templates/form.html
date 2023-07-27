@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form</title>
+    <link th:href="@{/fstylesheet.css}" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="topnav">
+      <a th:href="@{/}">Form</a>
+      <a th:href="@{/grades}">Grades</a>
+    </div>
+    <div class="container">
+      <h2>Grade Portal</h2>
+      <form method="post" th:object="${grade}" th:action="@{/handleSubmit}">
+        <p style="color: crimson" th:errors="*{name}"></p>
+        <input type="text" placeholder="Name" th:field="*{name}" />
+        <p style="color: crimson" th:errors="*{score}"></p>
+        <input type="text" placeholder="Score" th:field="*{score}" />
+        <p style="color: crimson" th:errors="*{score_bolon}"></p>
+        <input
+          type="text"
+          placeholder="Score in Bolon system"
+          th:field="*{score_bolon}"
+        />
+        <p style="color: crimson" th:errors="*{subj}"></p>
+        <input type="text" placeholder="Subject" th:field="*{subj}" />
+        <input type="hidden" th:field="*{stud_id}" />
+        <br /><br />
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+  </body>
+</html>
